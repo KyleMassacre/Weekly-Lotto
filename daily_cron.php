@@ -50,7 +50,7 @@ if (date("l") == ucfirst($date))
             SendChatLine(Translate('User %s has won the lotto.', $name));
         if (function_exists('SendMessage'))
             SendMessage($winner, 'Weekly Lottery', Translate('Congrats %s!!! You have just won the weekly lottery with a jackpot of %s !Currency', $name, $jackpotvalue), 1);
-        $insert = $db->Execute("insert into weekly_lottery_winners (userid,amount) values (?,?)",$winner,$jackpotvalue);
+        $insert = $db->Execute("insert into weekly_lottery_winners (userid,amount) values (?,?,?)",$winner,$jackpotvalue,date('Y-m-d H:i:s'));
     }
 
     //Reset lottery.
